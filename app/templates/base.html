@@ -19,10 +19,18 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url_for('main.index') }}">Flasky</a>
+
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="{{ url_for('auth.register') }}"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
+                    <li><a>{{ current_user.username }}</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

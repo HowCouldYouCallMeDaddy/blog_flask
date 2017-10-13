@@ -1,4 +1,4 @@
-from wtforms import StringField,SubmitField,PasswordField
+from wtforms import StringField,SubmitField,PasswordField,ValidationError
 from flask_wtf import FlaskForm
 from ..model import User
 
